@@ -1,0 +1,214 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="instock" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8819c0a-2444-4ae8-ab99-dc5437c52d6e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Refund_amounts"/>
+	<query language="SQL"><![CDATA[SELECT `grn`.`id` AS grn_id ,`stock`.`id` AS stock_id ,`product`.`name` AS product_name ,`supplier`.`name` AS supplier_name,`company`.`name` AS company_name,`company_branch`.`name` AS company_branch_name,`grn_item`.`quantity` AS quantity,`grn_item`.`buying_price` AS buying_price
+FROM `grn`
+INNER JOIN `grn_item` ON `grn`.`id` = `grn_item`.`grn_id`
+INNER JOIN `stock` ON `stock`.`id`=`grn_item`.`stock_id`
+INNER JOIN `product` ON `stock`.`product_id` = `product`.`id`
+INNER JOIN `supplier` ON `grn`.`supplier_id` = `supplier`.`id`
+INNER JOIN `company_branch` ON `supplier`.`company_branch_id` = `company_branch`.`id` INNER JOIN `company` ON `company_branch`.`company_id` = `company`.`id`]]></query>
+	<field name="grn_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="grn_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="grn"/>
+	</field>
+	<field name="stock_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="stock_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock"/>
+	</field>
+	<field name="product_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="product_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product"/>
+	</field>
+	<field name="supplier_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="supplier_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier"/>
+	</field>
+	<field name="company_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="company_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="company"/>
+	</field>
+	<field name="company_branch_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="company_branch_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="company_branch"/>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.label" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="grn_item"/>
+	</field>
+	<field name="buying_price" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="buying_price"/>
+		<property name="com.jaspersoft.studio.field.label" value="buying_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="grn_item"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="109" splitType="Stretch">
+		<element kind="staticText" uuid="dc745149-423e-4374-92c9-7d6f86f84282" x="0" y="0" width="554" height="100" fontName="Calibri Light" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[]]></text>
+		</element>
+		<element kind="staticText" uuid="dbe368dc-ad5a-4aec-a144-bdb535af9849" x="147" y="0" width="260" height="30" forecolor="#05CDFF" fontName="Ebrima" fontSize="21.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[MySty Shop]]></text>
+		</element>
+		<element kind="staticText" uuid="51838d09-6fd9-45f0-a6a3-564295198b00" x="147" y="30" width="260" height="20" fontName="Ebrima" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[No.178 Kandy Road Matale]]></text>
+		</element>
+		<element kind="staticText" uuid="196d2d47-c11b-4c88-9d2d-31feff2287d4" x="147" y="50" width="260" height="20" forecolor="#000000" fontName="Ebrima" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Matale]]></text>
+		</element>
+		<element kind="staticText" uuid="6cc568bb-7a3c-4c68-8010-75d5ad7fe88c" x="227" y="70" width="100" height="30" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[GRN Report]]></text>
+		</element>
+	</title>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="07dd3351-fbba-4298-8d34-f6862ac5f4b3" x="0" y="0" width="50" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[GRN ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a74ffbb3-121d-4ac0-9fd7-fc367ae848dc"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="040a3ff6-69a3-46ff-b64e-bcd76f121a1b" x="50" y="0" width="50" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Stock ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1065e3f-e080-4b87-98b1-4bdc2385a0e2"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a7b7d3a1-8050-46c6-b28f-397d2f6b971f" x="100" y="0" width="110" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Product Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="96f665b4-74c8-4943-b6cb-6d091b18c875"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="ce4c2310-02ae-45fb-887d-a57efc54d536" x="210" y="0" width="69" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Supplier Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb1cd8b2-592a-42c7-bd6d-999ab2438a71"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="6ce7b757-4319-45ef-95c8-d7806a30e17a" x="279" y="0" width="69" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Company Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="878cc9a1-ff47-4e28-b9e7-b6e846d9572d"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0aa17792-8740-4d64-8bfb-f51427ddef6b" x="348" y="0" width="92" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Company Branch Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cbf52438-8788-4604-aef1-ebd31e5a78a3"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b9416737-095c-4e24-a4ed-81a677749da5" x="440" y="0" width="46" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Quantity]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="96fbade4-ec88-4495-acc9-753fcd5a6825"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="7b890b7f-3efb-4e08-92f9-b2147ab0f284" x="486" y="0" width="69" height="30" fontName="Calibri Light" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Buying Price]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15336720-3e68-4e6b-845b-3fdb861d9f1f"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="3605c844-f501-478f-ae90-f688168f4fba" x="0" y="0" width="50" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{grn_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a74ffbb3-121d-4ac0-9fd7-fc367ae848dc"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="ae5d1b63-d641-4e22-a57c-231a23459660" x="50" y="0" width="50" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{stock_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1065e3f-e080-4b87-98b1-4bdc2385a0e2"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="faaf29f1-5e31-41b6-8a76-95168511ea5a" x="100" y="0" width="110" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{product_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="96f665b4-74c8-4943-b6cb-6d091b18c875"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="c54cd8a9-6345-4bf8-a88a-439d3b3116d2" x="210" y="0" width="69" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{supplier_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb1cd8b2-592a-42c7-bd6d-999ab2438a71"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="5fc0af06-b1e7-4a98-a865-1c4ac85d3ddc" x="279" y="0" width="69" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{company_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="878cc9a1-ff47-4e28-b9e7-b6e846d9572d"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="ec5e2de4-2483-402d-b677-41c3ce02a40a" x="348" y="0" width="92" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{company_branch_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cbf52438-8788-4604-aef1-ebd31e5a78a3"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="080993c4-945c-4b30-b46b-89bf92df2287" x="440" y="0" width="46" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{quantity}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="96fbade4-ec88-4495-acc9-753fcd5a6825"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="59a60567-7e52-4ec6-a433-3dd62e2a7354" x="486" y="0" width="69" height="30" fontName="Calibri Light" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{buying_price}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15336720-3e68-4e6b-845b-3fdb861d9f1f"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#808080"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+</jasperReport>
